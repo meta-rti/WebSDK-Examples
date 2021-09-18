@@ -1,0 +1,13 @@
+{
+  "name": "WebSDK-Examples",
+  "version": "1.0.0",
+  "main": "examples/index.html",
+  "scripts": {
+    "start": "http-server ./examples"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^13.0.1"
+  }
+}
