@@ -1,6 +1,6 @@
 {
   "name": "WebSDK-Examples",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "examples/index.html",
   "scripts": {
     "start": "http-server ./examples"

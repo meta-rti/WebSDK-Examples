@@ -1,5 +1,5 @@
-// create Wuji client
-var client = WujiRTC.createClient({ mode: "rtc", codec: "vp8" });
+// create Meta client
+var client = MetaRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 var localTracks = {
   videoTrack: null,
@@ -12,7 +12,7 @@ var localTrackState = {
 }
 
 var remoteUsers = {};
-// Wuji client options
+// Meta client options
 var options = {
   appid: null,
   channel: null,
@@ -90,8 +90,8 @@ async function join() {
     // join the channel
     client.join(options.appid, options.channel, options.token || null, options.uid || null),
     // create local tracks, using microphone and camera
-    WujiRTC.createMicrophoneAudioTrack(),
-    WujiRTC.createCameraVideoTrack()
+    MetaRTC.createMicrophoneAudioTrack(),
+    MetaRTC.createCameraVideoTrack()
   ]);
 
   showMuteButton();

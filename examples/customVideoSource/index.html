@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Custom Video Source -- Wuji</title>
+  <title>Custom Video Source -- Meta</title>
   <link rel="stylesheet" href="../assets/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
 </head>
@@ -14,13 +14,13 @@
 
   <!--cors - https://alfilatov.com/posts/run-chrome-without-cors/-->
   <!--
-  This page interacts with the Wuji Voice Call for Web Next Generation SDK to easily create Video Call
+  This page interacts with the Meta Voice Call for Web Next Generation SDK to easily create Video Call
   functionality in a Web page.
 
-  This HTML page imports the next generation Wuji Video SDK for Web from
+  This HTML page imports the next generation Meta Video SDK for Web from
 
   The form in this page passes data and actions input by the user to customVideoSource.js. basicVideoCall
-  creates an WujiRTC client which adds and and removes local and remote users to a specific channel.
+  creates an MetaRTC client which adds and and removes local and remote users to a specific channel.
 -->
 
   <!--
@@ -29,7 +29,7 @@
   <div class="container-fluid banner">
     <p class="banner-text">Using Custom Source</p>
     <a style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;"
-      class="Header-link " href="https://github.com/wuji-co/API-Examples-Web/tree/main/Demo">
+      class="Header-link " href="https://github.com/wuji.co/API-Examples-Web/tree/main/Demo">
       <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32"
         aria-hidden="true">
         <path fill-rule="evenodd"
@@ -145,12 +145,12 @@
   </div>
 
   <!--
-  Import the Wuji Video Call SDK for Web and local calls to it.
+  Import the Meta Video Call SDK for Web and local calls to it.
 -->
   <script src="../assets/jquery-3.4.1.min.js"></script>
   <script src="../assets/bootstrap.bundle.min.js"></script>
   <script src="../libs/adapter.min.js"></script>
-  <script src="http://localhost:3000/index.bundle.js"></script>
+  <script src="../libs/meta-rtc-sdk.js"></script>
   <script src="customVideoSource.js"></script>
 </body>
 

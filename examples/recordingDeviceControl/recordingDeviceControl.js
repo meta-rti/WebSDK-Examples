@@ -1,11 +1,11 @@
-// create Wuji client
-var client = WujiRTC.createClient({ mode: "rtc", codec: "vp8" });
+// create Meta client
+var client = MetaRTC.createClient({ mode: "rtc", codec: "vp8" });
 var localTracks = {
   videoTrack: null,
   audioTrack: null
 };
 var remoteUsers = {};
-// Wuji client options
+// Meta client options
 var options = {
   appid: null,
   channel: null,
@@ -87,8 +87,8 @@ async function join() {
   if (!localTracks.audioTrack || !localTracks.videoTrack) {
     [ localTracks.audioTrack, localTracks.videoTrack ] = await Promise.all([
       // create local tracks, using microphone and camera
-      WujiRTC.createMicrophoneAudioTrack({ microphoneId: currentMic.deviceId }),
-      WujiRTC.createCameraVideoTrack({ cameraId: currentCam.deviceId })
+      MetaRTC.createMicrophoneAudioTrack({ microphoneId: currentMic.deviceId }),
+      MetaRTC.createCameraVideoTrack({ cameraId: currentCam.deviceId })
     ]);
   }
 
@@ -105,8 +105,8 @@ async function mediaDeviceTest() {
   // create local tracks
   [ localTracks.audioTrack, localTracks.videoTrack ] = await Promise.all([
     // create local tracks, using microphone and camera
-    WujiRTC.createMicrophoneAudioTrack(),
-    WujiRTC.createCameraVideoTrack()
+    MetaRTC.createMicrophoneAudioTrack(),
+    MetaRTC.createCameraVideoTrack()
   ]);
 
   // play local track on device detect dialog
@@ -114,7 +114,7 @@ async function mediaDeviceTest() {
   // localTracks.audioTrack.play();
 
   // get mics
-  mics = await WujiRTC.getMicrophones();
+  mics = await MetaRTC.getMicrophones();
   currentMic = mics[0];
   $(".mic-input").val(currentMic.label);
   mics.forEach(mic => {
@@ -122,7 +122,7 @@ async function mediaDeviceTest() {
   });
 
   // get cameras
-  cams = await WujiRTC.getCameras();
+  cams = await MetaRTC.getCameras();
   currentCam = cams[0];
   $(".cam-input").val(currentCam.label);
   cams.forEach(cam => {

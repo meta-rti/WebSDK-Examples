@@ -1,11 +1,11 @@
-// create Wuji client
-var client = WujiRTC.createClient({mode: "live", codec: "vp8"});
+// create Meta client
+var client = MetaRTC.createClient({mode: "live", codec: "vp8"});
 var localTracks = {
     videoTrack: null,
     audioTrack: null
 };
 var remoteUsers = {};
-// Wuji client options
+// Meta client options
 var options = {
     appid: null,
     channel: null,
@@ -78,7 +78,7 @@ $("#leave").click(function (e) {
 })
 
 async function join() {
-    // create Wuji client
+    // create Meta client
 
     if (options.role === "audience") {
         client.setClientRole(options.role, {level: options.audienceLatency});
@@ -95,8 +95,8 @@ async function join() {
 
     if (options.role === "host") {
         // create local audio and video tracks
-        localTracks.audioTrack = await WujiRTC.createMicrophoneAudioTrack();
-        localTracks.videoTrack = await WujiRTC.createCameraVideoTrack();
+        localTracks.audioTrack = await MetaRTC.createMicrophoneAudioTrack();
+        localTracks.videoTrack = await MetaRTC.createCameraVideoTrack();
         // play local video track
         localTracks.videoTrack.play("local-player");
         $("#local-player-name").text(`localTrack(${options.uid})`);

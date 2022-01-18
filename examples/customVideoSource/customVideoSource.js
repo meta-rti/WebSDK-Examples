@@ -1,16 +1,16 @@
 
 /*
- *  These procedures use Wuji Video Call SDK for Web to enable local and remote
- *  users to join and leave a Video Call channel managed by Wuji Platform.
+ *  These procedures use Meta Video Call SDK for Web to enable local and remote
+ *  users to join and leave a Video Call channel managed by Meta Platform.
  */
 
 /*
  *  Create an  instance.
  *
- *  @param {string} mode - The  used by Wuji SDK.
+ *  @param {string} mode - The  used by Meta SDK.
  *  @param  {string} codec - The  used by the browser.
  */
-var client = WujiRTC.createClient({ mode: "rtc", codec: "h264" });
+var client = MetaRTC.createClient({ mode: "rtc", codec: "h264" });
 
 /*
  *  Clear the video and audio tracks used by `client` on initiation.
@@ -112,7 +112,7 @@ async function join() {
   client.on("user-unpublished", handleUserUnpublished);
 
   // Default publish local microphone audio track to both options.
-  localTracks.audioTrack = await WujiRTC.createMicrophoneAudioTrack();
+  localTracks.audioTrack = await MetaRTC.createMicrophoneAudioTrack();
 
   if (currentStream == "camera") {
     // Join a channel and create local tracks. Best practice is to use Promise.all and run them concurrently.
@@ -120,7 +120,7 @@ async function join() {
       // Join the channel.
       client.join(options.appid, options.channel, options.token || null, options.uid || null),
       // Create tracks to the localcamera.
-      WujiRTC.createCameraVideoTrack()
+      MetaRTC.createCameraVideoTrack()
     ]);
 
     // Publish the local video and audio tracks to the channel.
@@ -141,7 +141,7 @@ async function join() {
         // Join the channel.
         client.join(options.appid, options.channel, options.token || null, options.uid || null),
         // Create tracks to the customized video source.
-        WujiRTC.createCustomVideoTrack({mediaStreamTrack:videoStream.getVideoTracks()[0]})
+        MetaRTC.createCustomVideoTrack({mediaStreamTrack:videoStream.getVideoTracks()[0]})
       ]);
  
     }
@@ -206,7 +206,7 @@ async function leave() {
 /*
  * Add the local use to a remote channel.
  *
- * @param  {IWujiRTCRemoteUser} user - The  to add.
+ * @param  {IMetaRTCRemoteUser} user - The  to add.
  * @param {trackMediaType - The  to add.
  */
 async function subscribe(user, mediaType) {
@@ -232,7 +232,7 @@ async function subscribe(user, mediaType) {
 /*
  * Add a user who has subscribed to the live channel to the local interface.
  *
- * @param  {IWujiRTCRemoteUser} user - The  to add.
+ * @param  {IMetaRTCRemoteUser} user - The  to add.
  * @param {trackMediaType - The  to add.
  */
 function handleUserPublished(user, mediaType) {

@@ -1,17 +1,17 @@
 
 /*
- *  These procedures use Wuji Video Call SDK for Web to enable 1 local and 2 remote
- *  users to join and leave a Video Call channel managed by Wuji Platform.
+ *  These procedures use Meta Video Call SDK for Web to enable 1 local and 2 remote
+ *  users to join and leave a Video Call channel managed by Meta Platform.
  */
 
 /*
  *  Create an  instance.
  *
- * @param {string} mode - The  used by Wuji SDK.
+ * @param {string} mode - The  used by Meta SDK.
  * @param  {string} codec - The  used by the browser.
  */
-var client = WujiRTC.createClient({ mode: "rtc", codec: "vp8" });
-var client2 = WujiRTC.createClient({ mode: "rtc", codec: "vp8" });
+var client = MetaRTC.createClient({ mode: "rtc", codec: "vp8" });
+var client2 = MetaRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 /*
  * Clear the video and audio tracks used by `client` on initiation.
@@ -137,8 +137,8 @@ async function join() {
     // Join the channel.
     client.join(options.appid, options.channel, options.token || null, options.uid || null),
     // Create tracks to the local microphone and camera.
-    WujiRTC.createMicrophoneAudioTrack(),
-    WujiRTC.createCameraVideoTrack()
+    MetaRTC.createMicrophoneAudioTrack(),
+    MetaRTC.createCameraVideoTrack()
   ]);
 
   // Play the local video track to the local browser and update the UI with the user ID.
@@ -195,7 +195,7 @@ async function leave() {
 /*
  * Add the local use to a remote channel.
  *
- * @param  {IWujiRTCRemoteUser} user - The  to add.
+ * @param  {IMetaRTCRemoteUser} user - The  to add.
  * @param {trackMediaType - The  to add.
  */
 async function subscribe(user, mediaType, clientName) {
@@ -221,7 +221,7 @@ async function subscribe(user, mediaType, clientName) {
 /*
  * Add a user who has subscribed to the live channel to the local interface.
  *
- * @param  {IWujiRTCRemoteUser} user - The  to add.
+ * @param  {IMetaRTCRemoteUser} user - The  to add.
  * @param {trackMediaType - The  to add.
  */
 function handleUserPublished(user, mediaType) {
