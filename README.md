@@ -1,8 +1,8 @@
-# Wuji Web SDK 示例项目
+# Meta Web SDK 示例项目
 
 ## 简介
 
-此仓库包含基于 Wuji RTC WebSDK 的示例项目。
+此仓库包含基于 Meta RTC WebSDK 的示例项目。
 
 ### 运行步骤
 

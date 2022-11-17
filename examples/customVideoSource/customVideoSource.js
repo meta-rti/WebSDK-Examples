@@ -1,4 +1,3 @@
-
 /*
  *  These procedures use Meta Video Call SDK for Web to enable local and remote
  *  users to join and leave a Video Call channel managed by Meta Platform.
@@ -10,7 +9,7 @@
  *  @param {string} mode - The  used by Meta SDK.
  *  @param  {string} codec - The  used by the browser.
  */
-var client = MetaRTC.createClient({ mode: "rtc", codec: "h264" });
+var client = MetaRTC.createClient({mode: 'rtc', codec: 'h264'});
 
 /*
  *  Clear the video and audio tracks used by `client` on initiation.
